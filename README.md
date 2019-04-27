@@ -1,4 +1,4 @@
-# Hw4
+# Connect4 Web Application
 
 This restful web application is designed to play Connect 4. Using nodejs as a backend server.
 
