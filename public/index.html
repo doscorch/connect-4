@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Connect 4</title>
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <link rel="stylesheet" href="/css/connect.css">
+    <script src="/js/connect.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+            <a class="navbar-brand mr-auto" href="#">Connect4</a>
+            <span id="user-menu" class="d-none">
+                <span id="user" class="text-white"></span>
+                <span class="btn btn-primary" id="logout-btn" onclick="app.logout()">logout</span>
+            </span>
+        </nav>
+        <div class="container" style="margin-top:30px">
+            <div id="login-view" class="container d-none">
+                <form id="login-form">
+                    <h2>Login</h2>
+                    <label for="input-email" class="sr-only">Email address</label>
+                    <input type="email" name="email" id="email-input" class="form-control" placeholder="Email address" required>
+                    <label for="input-password" class="sr-only">Password</label>
+                    <input type="password" name="password" id="password-input" class="form-control" placeholder="Password" required>
+                    <span class="btn btn-lg btn-primary btn-block" onclick="app.login()">Sign in</span>
+                </form>
+            </div>
+            <div id="game-list-view" class="container d-none">
+                <form class="form-inline mt-5 mb-2">
+                    <div class="input-group mr-sm-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Color</span>
+                        </div>
+                        <input type="color" id="color-input" value="ff0000" />
+                    </div>
+                    <div class="input-group mr-sm-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Player</span>
+                        </div>
+                        <select id="player-input">
+                        </select>
+                    </div>
+                    <div class="input-group mr-sm-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Computer</span>
+                        </div>
+                        <select id="computer-input">
+                        </select>
+                    </div>
+                    <span class="btn btn-primary" id="create-btn" onclick="app.postGame()">CREATE</span>
+                </form>
+                <table class="table table-striped">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Status</th>
+                            <th>Player</th>
+                            <th>Computer</th>
+                            <th>Time Started</th>
+                            <th>Time Finished</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="game-list">
+                    </tbody>
+                </table>
+            </div>
+            <div id="game-view" class="container d-none">
+                <span class="btn btn-primary text-center container-fluid mt-5 mb-2"
+                    onclick="app.viewGameList()">Return</span>
+                <div id="end-game" class="text-center container-fluid mb-2"></div>
+                <table class="text-center container-fluid mb-2">
+                    <thead>
+                        <tr id="checkerboard-hover">
+                        </tr>
+                    </thead>
+                    <tbody id="checkerboard">
+                    </tbody>
+                </table>
+                <h1 id="game-status" class="text-center container-fluid"></h1>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
